@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   const handleDelete = (index) => {
-    setTasksArray(tasksArray.filter((_, i) => i !== index));
+    setTasksArray(tasksArray.filter((_, i) => i !== index)); // delete the task 
   };
 
   return (
@@ -30,16 +30,20 @@ export default function Home() {
       <h1 className='font-bold text-4xl '> To-Do Next</h1>
       <form onSubmit={inputSubmit} className='flex gap-2 '>
         {/* input field */}
-        <input type="text" value={task} onChange={inputChange} placeholder="Enter a task" 
-        className="border-2 border-gray-300 p-2 w-full m-auto " />
+        <input type="text" value={task} onChange={inputChange} placeholder="Enter a task"
+          className="border-2 border-gray-300 p-2 w-full m-auto rounded" />
         {/* add button */}
         <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
       </form>
       <ul>
         {tasksArray.map((task, index) => (
-          <li key={index} className='font-bold text-2xl flex gap-2 md:gap-5'>
-            {task}
-            <button onClick={() => handleDelete(index)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+          <li key={index} className='flex m-2 gap-2 items-center justify-between md:gap-10'>
+            <div className='p-2  flex flex-col md:p-3'>
+              <div className='text-2xl' >{task}</div>
+            </div>
+            <button onClick={() => handleDelete(index)}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold p-1 rounded">
+              Delete</button>
           </li>
         ))}
       </ul>
