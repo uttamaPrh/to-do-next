@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Home() {
   const [task, setTask] = useState('');
   const [tasksArray, setTasksArray] = useState([]);
-
+console.log(task)
 
   // Uppdate the value of task done by setTask
   const inputChange = (e) => {
@@ -22,8 +22,10 @@ export default function Home() {
   };
 
   const handleDelete = (index) => {
-    setTasksArray(tasksArray.filter((_, i) => i !== index)); // delete the task 
-  };
+  tasksArray.splice(index, 1); // delete the task
+  setTasksArray([...tasksArray]); // update the tasksArray 
+    console.log(index, 'deleted')
+    };
 
   return (
     <div className='p-5 flex items-center text-center flex-col gap-2 md:gap-5 w-full m-auto'>
