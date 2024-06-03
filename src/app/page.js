@@ -18,6 +18,7 @@ console.log(task)
     if (task.trim()) { // check if the input is non empty
       setTasksArray([...tasksArray, task]); //if non empty add the task to the tasksArray
       setTask(''); // resetes the value of task and clears the  input field
+      console.log('task submitted');
     }
   };
 
